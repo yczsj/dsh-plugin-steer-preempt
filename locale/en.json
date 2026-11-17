@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Job output wake",
+    "description": "Ends a blocking job_output(wait: true) read as soon as the awaited background job writes new output, so a progress check returns with that output instead of blocking to the wait cap. The job keeps running and its completion notice still arrives; the returned text says the wake was neither a timeout nor a completion. Tune it with graceMs (settle window before cutting the wait) and minBytes (how much new output arms the wake). Turn the plugin off to restore stock waiting; a wait whose job produces nothing still blocks exactly as before."
+  }
+}

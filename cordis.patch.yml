@@ -1,0 +1,15 @@
+# Bundle patch for @yczsj/job-output-wake.
+#
+# No configuration is required. The defaults wake a blocking job_output(wait:
+# true) read as soon as the awaited job has written at least one new byte, after
+# a 1s settle window that lets a nearly-finished job keep its real result.
+#
+#   - set:
+#       - id: job-output-wake
+#         config:
+#           enabled: true    # false mounts the row but does nothing
+#           graceMs: 1000    # settle window before cutting the wait (0 = cut at once)
+#           minBytes: 1      # new bytes required to arm the wake
+- insert:
+    - id: job-output-wake
+      name: '@yczsj/job-output-wake'
